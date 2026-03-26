@@ -128,6 +128,18 @@ final class TodoListTests: XCTestCase {
         let subtask = Subtask(title: "先把水杯拿走", orderIndex: 0, parentTask: task)
         task.subtasks = [subtask]
 
-        XCTAssertEqual(task.nextStepText, "先把水杯拿走")
+        XCTAssertEqual(task.displayNextStep, "先把水杯拿走")
+    }
+
+    func testDisplayNextStepUsesManualValueWhenThereAreNoSubtasks() {
+        let task = TodoTask(title: "收拾书桌", manualNextStep: "先清空桌面", section: .pending)
+
+        XCTAssertEqual(task.displayNextStep, "先清空桌面")
+    }
+
+    func testDisplayNextStepIsNilWhenThereAreNoSubtasksAndNoManualValue() {
+        let task = TodoTask(title: "收拾书桌", manualNextStep: "   ", section: .pending)
+
+        XCTAssertNil(task.displayNextStep)
     }
 }

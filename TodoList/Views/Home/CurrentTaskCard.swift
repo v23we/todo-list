@@ -14,10 +14,17 @@ struct CurrentTaskCard: View {
                         .font(.title3.bold())
                         .foregroundStyle(theme.textPrimary)
 
-                    Text("下一步：\(task.nextStepText)")
-                        .font(.body)
-                        .foregroundStyle(theme.textSecondary)
-                        .lineLimit(2)
+                    if let displayNextStep = task.displayNextStep {
+                        Text("下一步：\(displayNextStep)")
+                            .font(.body)
+                            .foregroundStyle(theme.textSecondary)
+                            .lineLimit(2)
+                    } else {
+                        Text(task.displayNextStepPlaceholder)
+                            .font(.body)
+                            .foregroundStyle(theme.textSecondary)
+                            .lineLimit(2)
+                    }
 
                     if let progressText = task.progressText {
                         Label(progressText, systemImage: "list.bullet.rectangle.portrait")

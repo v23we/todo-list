@@ -110,9 +110,15 @@ struct TasksView: View {
                     }
                 }
 
-                Text("下一步：\(task.nextStepText)")
-                    .font(.subheadline)
-                    .foregroundStyle(theme.textSecondary)
+                if let displayNextStep = task.displayNextStep {
+                    Text("下一步：\(displayNextStep)")
+                        .font(.subheadline)
+                        .foregroundStyle(theme.textSecondary)
+                } else {
+                    Text(task.displayNextStepPlaceholder)
+                        .font(.subheadline)
+                        .foregroundStyle(theme.textSecondary)
+                }
 
                 if let progressText = task.progressText {
                     Text("进度：\(progressText)")

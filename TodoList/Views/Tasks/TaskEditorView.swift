@@ -23,12 +23,12 @@ struct TaskEditorView: View {
         Form {
             Section("基本信息") {
                 TextField("任务标题", text: $title)
-                TextField(hasNamedSubtasks ? "下一步（已由子任务自动生成）" : "下一步（可选）", text: $nextStep)
-                    .disabled(hasNamedSubtasks)
                 if hasNamedSubtasks {
                     Text("已有子任务时，首页显示的“下一步”会自动等于第一个未完成子任务。")
                         .font(.footnote)
                         .foregroundStyle(theme.textSecondary)
+                } else {
+                    TextField("下一步（可选）", text: $nextStep)
                 }
                 TextField("备注（可选）", text: $note, axis: .vertical)
                     .lineLimit(3...6)

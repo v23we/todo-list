@@ -65,6 +65,19 @@ extension TodoTask {
         sortedSubtasks.first(where: { !$0.isCompleted })
     }
 
+    var displayNextStep: String? {
+        if let nextIncompleteSubtask {
+            let title = nextIncompleteSubtask.title.trimmingCharacters(in: .whitespacesAndNewlines)
+            return title.isEmpty ? nil : title
+        }
+
+        return trimmedManualNextStep.isEmpty ? nil : trimmedManualNextStep
+    }
+
+    var displayNextStepPlaceholder: String {
+        "从这一步开始"
+    }
+
     var allSubtasksCompleted: Bool {
         hasSubtasks && completedSubtaskCount == sortedSubtasks.count
     }
@@ -93,10 +106,7 @@ extension TodoTask {
     }
 
     var nextStepText: String {
-        if hasSubtasks {
-            return nextIncompleteSubtask?.title ?? "已完成全部子任务"
-        }
-        return trimmedManualNextStep.isEmpty ? "从最小的一步开始" : trimmedManualNextStep
+        displayNextStep ?? displayNextStepPlaceholder
     }
 
     var primaryActionTitle: String {

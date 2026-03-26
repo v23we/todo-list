@@ -19,8 +19,9 @@ struct TaskDetailView: View {
         Form {
             Section("基本信息") {
                 TextField("任务标题", text: $task.title)
-                TextField(viewModel.nextStepFieldTitle, text: $task.manualNextStep)
-                    .disabled(task.hasSubtasks)
+                if viewModel.shouldShowNextStepField {
+                    TextField("下一步（可选）", text: $task.manualNextStep)
+                }
                 if let helperText = viewModel.nextStepHelperText {
                     Text(helperText)
                         .font(.footnote)
@@ -82,7 +83,7 @@ struct TaskDetailView: View {
             }
 
             Section("首页展示") {
-                Text("下一步：\(viewModel.nextStepText)")
+                Text("下一步：\(viewModel.displayNextStep ?? viewModel.displayNextStepPlaceholder)")
                 Text("进度：\(viewModel.progressText)")
                 if let latestOutcome {
                     Text("本次完成获得 +\(latestOutcome.gainedXP) XP")
@@ -151,6 +152,7 @@ struct TaskDetailView: View {
     private func addSubtask() {
         let trimmed = newSubtaskTitle.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return }
+        let wasWithoutSubtasks = task.sortedSubtasks.isEmpty
 
         let subtask = Subtask(
             title: trimmed,
@@ -158,6 +160,9 @@ struct TaskDetailView: View {
             parentTask: task
         )
         task.subtasks.append(subtask)
+        if wasWithoutSubtasks {
+            task.manualNextStep = ""
+        }
         modelContext.insert(subtask)
         newSubtaskTitle = ""
         try? modelContext.save()

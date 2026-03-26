@@ -76,10 +76,14 @@ enum TaskService {
             throw NSError(domain: AppConstants.appName, code: 1, userInfo: [NSLocalizedDescriptionKey: "任务标题不能为空"])
         }
 
+        let hasNamedSubtasks = draft.subtasks.contains {
+            !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        }
+
         let task = TodoTask(
             title: trimmedTitle,
             note: draft.note,
-            manualNextStep: draft.nextStep,
+            manualNextStep: hasNamedSubtasks ? "" : draft.nextStep,
             section: draft.section,
             sortOrder: Date.now.timeIntervalSince1970
         )
