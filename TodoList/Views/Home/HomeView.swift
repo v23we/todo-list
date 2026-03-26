@@ -27,77 +27,82 @@ struct HomeView: View {
     }
 
     var body: some View {
-        Group {
-            if let viewModel {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        XPBarView(
-                            progress: viewModel.progress,
-                            theme: theme,
-                            xpStyleID: viewModel.xpStyleID,
-                            effectStyleID: viewModel.effectStyleID,
-                            animationTrigger: animationTrigger,
-                            latestOutcome: latestOutcome,
-                            completedTodayCount: viewModel.completedTodayCount,
-                            gainedXPToday: viewModel.gainedXPToday,
-                            nextUnlockText: viewModel.nextUnlockText
-                        )
+        ZStack(alignment: .top) {
+            theme.background.ignoresSafeArea()
 
-                        if let currentTask = viewModel.currentTask {
-                            VStack(alignment: .leading, spacing: 12) {
-                                Text("先做这一个")
-                                    .font(.headline)
-                                    .foregroundStyle(theme.textPrimary)
+            Group {
+                if let viewModel {
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 20) {
+                            XPBarView(
+                                progress: viewModel.progress,
+                                theme: theme,
+                                xpStyleID: viewModel.xpStyleID,
+                                effectStyleID: viewModel.effectStyleID,
+                                animationTrigger: animationTrigger,
+                                latestOutcome: latestOutcome,
+                                completedTodayCount: viewModel.completedTodayCount,
+                                gainedXPToday: viewModel.gainedXPToday,
+                                nextUnlockText: viewModel.nextUnlockText
+                            )
 
-                                CurrentTaskCard(
-                                    task: currentTask,
-                                    theme: theme,
-                                    onOpen: { detailTask = currentTask },
-                                    onComplete: { complete(task: currentTask) }
-                                )
-                            }
-                        } else {
-                            emptyState(viewModel: viewModel)
-                        }
+                            if let currentTask = viewModel.currentTask {
+                                VStack(alignment: .leading, spacing: 12) {
+                                    Text("先做这一个")
+                                        .font(.headline)
+                                        .foregroundStyle(theme.textPrimary)
 
-                        if !viewModel.alternativeTasks.isEmpty {
-                            VStack(alignment: .leading, spacing: 12) {
-                                Text("备选任务")
-                                    .font(.headline)
-                                    .foregroundStyle(theme.textPrimary)
-
-                                ForEach(viewModel.alternativeTasks, id: \.id) { task in
-                                    NextTaskCard(
-                                        task: task,
+                                    CurrentTaskCard(
+                                        task: currentTask,
                                         theme: theme,
-                                        onOpen: { detailTask = task },
-                                        onMakeCurrent: { makeCurrent(task: task) }
+                                        onOpen: { detailTask = currentTask },
+                                        onComplete: { complete(task: currentTask) }
                                     )
                                 }
+                            } else {
+                                emptyState(viewModel: viewModel)
                             }
-                        }
 
-                        Button {
-                            showCreator = true
-                        } label: {
-                            Text("新建任务")
-                                .font(.headline)
-                                .foregroundStyle(.white)
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 16)
-                                .background(theme.accent, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+                            if !viewModel.alternativeTasks.isEmpty {
+                                VStack(alignment: .leading, spacing: 12) {
+                                    Text("备选任务")
+                                        .font(.headline)
+                                        .foregroundStyle(theme.textPrimary)
+
+                                    ForEach(viewModel.alternativeTasks, id: \.id) { task in
+                                        NextTaskCard(
+                                            task: task,
+                                            theme: theme,
+                                            onOpen: { detailTask = task },
+                                            onMakeCurrent: { makeCurrent(task: task) }
+                                        )
+                                    }
+                                }
+                            }
+
+                            Button {
+                                showCreator = true
+                            } label: {
+                                Text("新建任务")
+                                    .font(.headline)
+                                    .foregroundStyle(.white)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 16)
+                                    .background(theme.accent, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+                            }
+                            .buttonStyle(.plain)
+                            .padding(.top, 8)
                         }
-                        .buttonStyle(.plain)
-                        .padding(.top, 8)
+                        .padding(20)
                     }
-                    .padding(20)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                } else {
+                    ProgressView("正在加载首页…")
+                        .tint(theme.accent)
                 }
-                .background(theme.background)
-            } else {
-                ProgressView("正在加载首页…")
-                    .tint(theme.accent)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .navigationTitle("首页")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {

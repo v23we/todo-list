@@ -12,20 +12,24 @@ struct SettingsView: View {
     }
 
     var body: some View {
-        Group {
-            if let settings {
-                Form {
-                    Toggle("开启音效", isOn: bind(settings, keyPath: \.soundEnabled))
-                    Toggle("开启震动反馈", isOn: bind(settings, keyPath: \.hapticsEnabled))
-                    Toggle("减少动态效果", isOn: bind(settings, keyPath: \.reduceMotionEnabled))
+        ZStack(alignment: .top) {
+            theme.background.ignoresSafeArea()
+
+            Group {
+                if let settings {
+                    Form {
+                        Toggle("开启音效", isOn: bind(settings, keyPath: \.soundEnabled))
+                        Toggle("开启震动反馈", isOn: bind(settings, keyPath: \.hapticsEnabled))
+                        Toggle("减少动态效果", isOn: bind(settings, keyPath: \.reduceMotionEnabled))
+                    }
+                    .scrollContentBackground(.hidden)
+                } else {
+                    ProgressView("正在加载设置…")
+                        .tint(theme.accent)
                 }
-                .scrollContentBackground(.hidden)
-                .background(theme.background)
-            } else {
-                ProgressView("正在加载设置…")
-                    .tint(theme.accent)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .navigationTitle("设置")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {

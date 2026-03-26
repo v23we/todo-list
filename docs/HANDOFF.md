@@ -58,6 +58,8 @@
 
 ## 已知限制
 
+- 当前全屏布局问题需优先从 `WindowGroup -> ContentView -> TabView` 根层排查；在新系统下不要用 `UIRequiresFullScreen` 或 `UIScreen.main.bounds` 固定整页尺寸去“硬撑全屏”，否则可能把整个 App 变成被缩放的兼容场景
+- 当前代码会在 scene 激活时尝试通过 `UIWindowScene.sizeRestrictions` 将最小/最大尺寸钉到当前屏幕尺寸；如果系统仍忽略，需按“系统窗口模式”而不是“SwiftUI 页面布局”继续排查
 - 当前没有拖拽排序 UI，`sortOrder` 主要用于保持稳定补位顺序
 - 奖励页的音效仍是占位；完成动效目前只有柔光 / 波纹两种轻量差异
 - 任务详情页采用直接编辑模型对象的方式，需以代码复核后再决定是否抽成更完整的编辑流

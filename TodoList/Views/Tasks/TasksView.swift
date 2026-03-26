@@ -16,30 +16,35 @@ struct TasksView: View {
     }
 
     var body: some View {
-        List {
-            taskSection("当前", tasks: viewModel.currentTasks)
-            taskSection("待处理", tasks: viewModel.pendingTasks)
-            taskSection("稍后", tasks: viewModel.laterTasks)
+        ZStack(alignment: .top) {
+            theme.background.ignoresSafeArea()
 
-            Section {
-                Button(showCompleted ? "收起已完成" : "展开已完成") {
-                    withAnimation(.easeInOut(duration: 0.2)) {
-                        showCompleted.toggle()
-                    }
-                }
-                .foregroundStyle(theme.accent)
+            List {
+                taskSection("当前", tasks: viewModel.currentTasks)
+                taskSection("待处理", tasks: viewModel.pendingTasks)
+                taskSection("稍后", tasks: viewModel.laterTasks)
 
-                if showCompleted {
-                    ForEach(viewModel.completedTasks, id: \.id) { task in
-                        taskRow(task)
+                Section {
+                    Button(showCompleted ? "收起已完成" : "展开已完成") {
+                        withAnimation(.easeInOut(duration: 0.2)) {
+                            showCompleted.toggle()
+                        }
                     }
+                    .foregroundStyle(theme.accent)
+
+                    if showCompleted {
+                        ForEach(viewModel.completedTasks, id: \.id) { task in
+                            taskRow(task)
+                        }
+                    }
+                } header: {
+                    Text("已完成")
                 }
-            } header: {
-                Text("已完成")
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .scrollContentBackground(.hidden)
         }
-        .scrollContentBackground(.hidden)
-        .background(theme.background)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .navigationTitle("任务")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {

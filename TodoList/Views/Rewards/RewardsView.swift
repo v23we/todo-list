@@ -16,37 +16,42 @@ struct RewardsView: View {
     }
 
     var body: some View {
-        ScrollView {
-            if let progress, let viewModel {
-                VStack(alignment: .leading, spacing: 20) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Lv.\(progress.level)")
-                            .font(.largeTitle.bold())
-                            .foregroundStyle(theme.textPrimary)
-                        Text("成长不会丢失，奖励会一直留下来。")
-                            .font(.body)
-                            .foregroundStyle(theme.textSecondary)
+        ZStack(alignment: .top) {
+            theme.background.ignoresSafeArea()
+
+            ScrollView {
+                if let progress, let viewModel {
+                    VStack(alignment: .leading, spacing: 20) {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Lv.\(progress.level)")
+                                .font(.largeTitle.bold())
+                                .foregroundStyle(theme.textPrimary)
+                            Text("成长不会丢失，奖励会一直留下来。")
+                                .font(.body)
+                                .foregroundStyle(theme.textSecondary)
+                        }
+                        .padding(20)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(theme.surface, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                                .stroke(theme.border, lineWidth: 1)
+                        )
+
+                        rewardSection(title: "主题", type: .theme, viewModel: viewModel, progress: progress)
+                        rewardSection(title: "XP 样式", type: .xpStyle, viewModel: viewModel, progress: progress)
+                        rewardSection(title: "音效", type: .sound, viewModel: viewModel, progress: progress)
+                        rewardSection(title: "完成动效", type: .effect, viewModel: viewModel, progress: progress)
                     }
                     .padding(20)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(theme.surface, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 24, style: .continuous)
-                            .stroke(theme.border, lineWidth: 1)
-                    )
-
-                    rewardSection(title: "主题", type: .theme, viewModel: viewModel, progress: progress)
-                    rewardSection(title: "XP 样式", type: .xpStyle, viewModel: viewModel, progress: progress)
-                    rewardSection(title: "音效", type: .sound, viewModel: viewModel, progress: progress)
-                    rewardSection(title: "完成动效", type: .effect, viewModel: viewModel, progress: progress)
+                } else {
+                    ProgressView("正在加载奖励…")
+                        .tint(theme.accent)
                 }
-                .padding(20)
-            } else {
-                ProgressView("正在加载奖励…")
-                    .tint(theme.accent)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
-        .background(theme.background)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .navigationTitle("奖励")
     }
 
