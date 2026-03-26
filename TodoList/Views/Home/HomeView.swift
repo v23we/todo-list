@@ -3,6 +3,37 @@ import SwiftData
 import AudioToolbox
 import UIKit
 
+private struct WarmupHintBar: View {
+    let theme: ThemePalette
+    let hasCurrentTask: Bool
+
+    var body: some View {
+        HStack(spacing: 8) {
+            Image(systemName: "timer")
+                .font(.footnote.weight(.semibold))
+                .foregroundStyle(theme.accent)
+
+            if hasCurrentTask {
+                Text("预计 5 分钟 · 轻量任务 · +\(AppConstants.xpPerTask)经验")
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(theme.textSecondary)
+            } else {
+                Text("从一个 5 分钟小任务开始")
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(theme.textSecondary)
+            }
+
+            Spacer()
+        }
+        .padding(.horizontal, 16)
+        .frame(height: 38)
+        .background(
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .fill(theme.accent.opacity(0.06))
+        )
+    }
+}
+
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: [SortDescriptor(\TodoTask.sortOrder), SortDescriptor(\TodoTask.createdAt)]) private var tasks: [TodoTask]
@@ -33,34 +64,44 @@ struct HomeView: View {
             Group {
                 if let viewModel {
                     ScrollView {
-                        VStack(alignment: .leading, spacing: 20) {
-                            XPBarView(
-                                progress: viewModel.progress,
-                                theme: theme,
-                                xpStyleID: viewModel.xpStyleID,
-                                effectStyleID: viewModel.effectStyleID,
-                                animationTrigger: animationTrigger,
-                                latestOutcome: latestOutcome,
-                                completedTodayCount: viewModel.completedTodayCount,
-                                gainedXPToday: viewModel.gainedXPToday,
-                                nextUnlockText: viewModel.nextUnlockText
-                            )
+                        VStack(alignment: .leading, spacing: 28) {
+                            
+                            // 主任务区核心内容流
+                            VStack(alignment: .leading, spacing: 0) {
+                                XPBarView(
+                                    progress: viewModel.progress,
+                                    theme: theme,
+                                    xpStyleID: viewModel.xpStyleID,
+                                    effectStyleID: viewModel.effectStyleID,
+                                    animationTrigger: animationTrigger,
+                                    latestOutcome: latestOutcome,
+                                    completedTodayCount: viewModel.completedTodayCount,
+                                    gainedXPToday: viewModel.gainedXPToday,
+                                    nextUnlockText: viewModel.nextUnlockText
+                                )
 
-                            if let currentTask = viewModel.currentTask {
-                                VStack(alignment: .leading, spacing: 12) {
-                                    Text("先做这一个")
-                                        .font(.headline)
-                                        .foregroundStyle(theme.textPrimary)
+                                Spacer().frame(height: 12)
 
-                                    CurrentTaskCard(
-                                        task: currentTask,
-                                        theme: theme,
-                                        onOpen: { detailTask = currentTask },
-                                        onComplete: { complete(task: currentTask) }
-                                    )
+                                WarmupHintBar(theme: theme, hasCurrentTask: viewModel.currentTask != nil)
+
+                                Spacer().frame(height: 10)
+
+                                if let currentTask = viewModel.currentTask {
+                                    VStack(alignment: .leading, spacing: 10) {
+                                        Text("先做这一个")
+                                            .font(.headline)
+                                            .foregroundStyle(theme.textPrimary)
+
+                                        CurrentTaskCard(
+                                            task: currentTask,
+                                            theme: theme,
+                                            onOpen: { detailTask = currentTask },
+                                            onComplete: { complete(task: currentTask) }
+                                        )
+                                    }
+                                } else {
+                                    emptyState(viewModel: viewModel)
                                 }
-                            } else {
-                                emptyState(viewModel: viewModel)
                             }
 
                             if !viewModel.alternativeTasks.isEmpty {
