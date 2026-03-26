@@ -175,23 +175,26 @@ struct HomeView: View {
     @ViewBuilder
     private func emptyState(viewModel: HomeViewModel) -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text(viewModel.emptyStateTitle)
-                .font(.title2.bold())
+            Text("先做这一个")
+                .font(.headline)
                 .foregroundStyle(theme.textPrimary)
-            Text(viewModel.emptyStateDescription)
-                .font(.body)
-                .foregroundStyle(theme.textSecondary)
-            Text("完成任务后会固定获得 +\(AppConstants.xpPerTask) XP。")
-                .font(.footnote)
-                .foregroundStyle(theme.textSecondary)
+                
+            VStack(alignment: .leading, spacing: 6) {
+                Text("当前没有任务")
+                    .font(.subheadline.bold())
+                    .foregroundStyle(theme.textPrimary)
+                Text("点击下方按钮开始你的下一步")
+                    .font(.footnote)
+                    .foregroundStyle(theme.textSecondary)
+            }
+            .padding(16)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(theme.surface.opacity(0.6), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .stroke(theme.border.opacity(0.5), style: StrokeStyle(lineWidth: 1, dash: [4, 4]))
+            )
         }
-        .padding(20)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(theme.surface, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
-        .overlay(
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .stroke(theme.border, lineWidth: 1)
-        )
     }
 
     private func makeCurrent(task: TodoTask) {
