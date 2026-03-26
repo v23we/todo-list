@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA0000000000000000000001 /* AppEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000101 /* AppEntry.swift */; };
+		AA0000000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000102 /* ContentView.swift */; };
+		AA0000000000000000000003 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000103 /* Task.swift */; };
+		AA0000000000000000000004 /* Subtask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000104 /* Subtask.swift */; };
+		AA0000000000000000000005 /* UserProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000105 /* UserProgress.swift */; };
+		AA0000000000000000000006 /* RewardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000106 /* RewardStyle.swift */; };
+		AA0000000000000000000007 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000107 /* AppSettings.swift */; };
+		AA0000000000000000000008 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000108 /* HomeViewModel.swift */; };
+		AA0000000000000000000009 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000109 /* TasksViewModel.swift */; };
+		AA0000000000000000000010 /* RewardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000110 /* RewardsViewModel.swift */; };
+		AA0000000000000000000011 /* TaskDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000111 /* TaskDetailViewModel.swift */; };
+		AA0000000000000000000012 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000112 /* TaskService.swift */; };
+		AA0000000000000000000013 /* ProgressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000113 /* ProgressService.swift */; };
+		AA0000000000000000000014 /* RewardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000114 /* RewardService.swift */; };
+		AA0000000000000000000015 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000115 /* PersistenceController.swift */; };
+		AA0000000000000000000016 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000116 /* Theme.swift */; };
+		AA0000000000000000000017 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000117 /* Constants.swift */; };
+		AA0000000000000000000018 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000118 /* MockData.swift */; };
+		AA0000000000000000000019 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000119 /* HomeView.swift */; };
+		AA0000000000000000000020 /* CurrentTaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000120 /* CurrentTaskCard.swift */; };
+		AA0000000000000000000021 /* NextTaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000121 /* NextTaskCard.swift */; };
+		AA0000000000000000000022 /* XPBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000122 /* XPBarView.swift */; };
+		AA0000000000000000000023 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000123 /* TasksView.swift */; };
+		AA0000000000000000000024 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000124 /* TaskDetailView.swift */; };
+		AA0000000000000000000025 /* TaskEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000125 /* TaskEditorView.swift */; };
+		AA0000000000000000000026 /* RewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000126 /* RewardsView.swift */; };
+		AA0000000000000000000027 /* RewardItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000127 /* RewardItemCard.swift */; };
+		AA0000000000000000000028 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000128 /* SettingsView.swift */; };
+		AA0000000000000000000029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000129 /* Assets.xcassets */; };
+		AA0000000000000000000030 /* TodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000130 /* TodoListTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA0000000000000000000401 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA0000000000000000000303 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0000000000000000000301;
+			remoteInfo = TodoList;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA0000000000000000000101 /* AppEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntry.swift; sourceTree = "<group>"; };
+		AA0000000000000000000102 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000103 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		AA0000000000000000000104 /* Subtask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subtask.swift; sourceTree = "<group>"; };
+		AA0000000000000000000105 /* UserProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProgress.swift; sourceTree = "<group>"; };
+		AA0000000000000000000106 /* RewardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardStyle.swift; sourceTree = "<group>"; };
+		AA0000000000000000000107 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		AA0000000000000000000108 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		AA0000000000000000000109 /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
+		AA0000000000000000000110 /* RewardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsViewModel.swift; sourceTree = "<group>"; };
+		AA0000000000000000000111 /* TaskDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewModel.swift; sourceTree = "<group>"; };
+		AA0000000000000000000112 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
+		AA0000000000000000000113 /* ProgressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressService.swift; sourceTree = "<group>"; };
+		AA0000000000000000000114 /* RewardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardService.swift; sourceTree = "<group>"; };
+		AA0000000000000000000115 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		AA0000000000000000000116 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		AA0000000000000000000117 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AA0000000000000000000118 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		AA0000000000000000000119 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000120 /* CurrentTaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTaskCard.swift; sourceTree = "<group>"; };
+		AA0000000000000000000121 /* NextTaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextTaskCard.swift; sourceTree = "<group>"; };
+		AA0000000000000000000122 /* XPBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPBarView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000123 /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000124 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000125 /* TaskEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000126 /* RewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000127 /* RewardItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardItemCard.swift; sourceTree = "<group>"; };
+		AA0000000000000000000128 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000129 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA0000000000000000000130 /* TodoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTests.swift; sourceTree = "<group>"; };
+		AA0000000000000000000201 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000000000000000000202 /* TodoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA0000000000000000000501 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000000502 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA0000000000000000000601 = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000602 /* TodoList */,
+				AA0000000000000000000612 /* TodoListTests */,
+				AA0000000000000000000613 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000602 /* TodoList */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000603 /* App */,
+				AA0000000000000000000604 /* Models */,
+				AA0000000000000000000605 /* ViewModels */,
+				AA0000000000000000000606 /* Views */,
+				AA0000000000000000000607 /* Services */,
+				AA0000000000000000000608 /* Persistence */,
+				AA0000000000000000000609 /* Resources */,
+			);
+			path = TodoList;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000603 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000101 /* AppEntry.swift */,
+				AA0000000000000000000102 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000604 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000103 /* Task.swift */,
+				AA0000000000000000000104 /* Subtask.swift */,
+				AA0000000000000000000105 /* UserProgress.swift */,
+				AA0000000000000000000106 /* RewardStyle.swift */,
+				AA0000000000000000000107 /* AppSettings.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000605 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000108 /* HomeViewModel.swift */,
+				AA0000000000000000000109 /* TasksViewModel.swift */,
+				AA0000000000000000000110 /* RewardsViewModel.swift */,
+				AA0000000000000000000111 /* TaskDetailViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000606 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000614 /* Home */,
+				AA0000000000000000000615 /* Tasks */,
+				AA0000000000000000000616 /* Rewards */,
+				AA0000000000000000000617 /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000607 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000112 /* TaskService.swift */,
+				AA0000000000000000000113 /* ProgressService.swift */,
+				AA0000000000000000000114 /* RewardService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000608 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000115 /* PersistenceController.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000609 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000116 /* Theme.swift */,
+				AA0000000000000000000117 /* Constants.swift */,
+				AA0000000000000000000118 /* MockData.swift */,
+				AA0000000000000000000129 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000612 /* TodoListTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000130 /* TodoListTests.swift */,
+			);
+			path = TodoListTests;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000613 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000201 /* TodoList.app */,
+				AA0000000000000000000202 /* TodoListTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000614 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000119 /* HomeView.swift */,
+				AA0000000000000000000120 /* CurrentTaskCard.swift */,
+				AA0000000000000000000121 /* NextTaskCard.swift */,
+				AA0000000000000000000122 /* XPBarView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000615 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000123 /* TasksView.swift */,
+				AA0000000000000000000124 /* TaskDetailView.swift */,
+				AA0000000000000000000125 /* TaskEditorView.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000616 /* Rewards */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000126 /* RewardsView.swift */,
+				AA0000000000000000000127 /* RewardItemCard.swift */,
+			);
+			path = Rewards;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000617 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000128 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA0000000000000000000301 /* TodoList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000000801 /* Build configuration list for PBXNativeTarget "TodoList" */;
+			buildPhases = (
+				AA0000000000000000000701 /* Sources */,
+				AA0000000000000000000501 /* Frameworks */,
+				AA0000000000000000000702 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodoList;
+			productName = TodoList;
+			productReference = AA0000000000000000000201 /* TodoList.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA0000000000000000000302 /* TodoListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000000802 /* Build configuration list for PBXNativeTarget "TodoListTests" */;
+			buildPhases = (
+				AA0000000000000000000703 /* Sources */,
+				AA0000000000000000000502 /* Frameworks */,
+				AA0000000000000000000704 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA0000000000000000000901 /* PBXTargetDependency */,
+			);
+			name = TodoListTests;
+			productName = TodoListTests;
+			productReference = AA0000000000000000000202 /* TodoListTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA0000000000000000000303 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2630;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					AA0000000000000000000301 = {
+						CreatedOnToolsVersion = 26.3;
+					};
+					AA0000000000000000000302 = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = AA0000000000000000000301;
+					};
+				};
+			};
+			buildConfigurationList = AA0000000000000000000803 /* Build configuration list for PBXProject "TodoList" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = zh-Hans;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				zh-Hans,
+				en,
+				Base,
+			);
+			mainGroup = AA0000000000000000000601;
+			productRefGroup = AA0000000000000000000613 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA0000000000000000000301 /* TodoList */,
+				AA0000000000000000000302 /* TodoListTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA0000000000000000000702 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000000029 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000000704 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA0000000000000000000701 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000000001 /* AppEntry.swift in Sources */,
+				AA0000000000000000000002 /* ContentView.swift in Sources */,
+				AA0000000000000000000003 /* Task.swift in Sources */,
+				AA0000000000000000000004 /* Subtask.swift in Sources */,
+				AA0000000000000000000005 /* UserProgress.swift in Sources */,
+				AA0000000000000000000006 /* RewardStyle.swift in Sources */,
+				AA0000000000000000000007 /* AppSettings.swift in Sources */,
+				AA0000000000000000000008 /* HomeViewModel.swift in Sources */,
+				AA0000000000000000000009 /* TasksViewModel.swift in Sources */,
+				AA0000000000000000000010 /* RewardsViewModel.swift in Sources */,
+				AA0000000000000000000011 /* TaskDetailViewModel.swift in Sources */,
+				AA0000000000000000000012 /* TaskService.swift in Sources */,
+				AA0000000000000000000013 /* ProgressService.swift in Sources */,
+				AA0000000000000000000014 /* RewardService.swift in Sources */,
+				AA0000000000000000000015 /* PersistenceController.swift in Sources */,
+				AA0000000000000000000016 /* Theme.swift in Sources */,
+				AA0000000000000000000017 /* Constants.swift in Sources */,
+				AA0000000000000000000018 /* MockData.swift in Sources */,
+				AA0000000000000000000019 /* HomeView.swift in Sources */,
+				AA0000000000000000000020 /* CurrentTaskCard.swift in Sources */,
+				AA0000000000000000000021 /* NextTaskCard.swift in Sources */,
+				AA0000000000000000000022 /* XPBarView.swift in Sources */,
+				AA0000000000000000000023 /* TasksView.swift in Sources */,
+				AA0000000000000000000024 /* TaskDetailView.swift in Sources */,
+				AA0000000000000000000025 /* TaskEditorView.swift in Sources */,
+				AA0000000000000000000026 /* RewardsView.swift in Sources */,
+				AA0000000000000000000027 /* RewardItemCard.swift in Sources */,
+				AA0000000000000000000028 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000000703 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000000030 /* TodoListTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA0000000000000000000901 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0000000000000000000301 /* TodoList */;
+			targetProxy = AA0000000000000000000401 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AA0000000000000000001001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA0000000000000000001002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		AA0000000000000000001003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TodoList;
+				INFOPLIST_KEY_LSRequiresIPhoneOS = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lcy.TodoList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA0000000000000000001004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TodoList;
+				INFOPLIST_KEY_LSRequiresIPhoneOS = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lcy.TodoList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		AA0000000000000000001005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lcy.TodoListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TodoList.app/TodoList";
+				TEST_TARGET_NAME = TodoList;
+			};
+			name = Debug;
+		};
+		AA0000000000000000001006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lcy.TodoListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TodoList.app/TodoList";
+				TEST_TARGET_NAME = TodoList;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA0000000000000000000801 /* Build configuration list for PBXNativeTarget "TodoList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000001003 /* Debug */,
+				AA0000000000000000001004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000000802 /* Build configuration list for PBXNativeTarget "TodoListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000001005 /* Debug */,
+				AA0000000000000000001006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000000803 /* Build configuration list for PBXProject "TodoList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000001001 /* Debug */,
+				AA0000000000000000001002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA0000000000000000000303 /* Project object */;
+}
