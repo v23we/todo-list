@@ -22,11 +22,6 @@ struct TaskDetailView: View {
                 if viewModel.shouldShowNextStepField {
                     TextField("下一步（可选）", text: $task.manualNextStep)
                 }
-                if let helperText = viewModel.nextStepHelperText {
-                    Text(helperText)
-                        .font(.footnote)
-                        .foregroundStyle(theme.textSecondary)
-                }
                 TextField("备注（可选）", text: $task.note, axis: .vertical)
                     .lineLimit(3...6)
             }
@@ -92,6 +87,10 @@ struct TaskDetailView: View {
             }
 
             Section("子任务") {
+                Text(viewModel.subtaskHintText)
+                    .font(.footnote)
+                    .foregroundStyle(theme.textSecondary)
+
                 Text(viewModel.subtaskSummaryText)
                     .font(.footnote)
                     .foregroundStyle(theme.textSecondary)

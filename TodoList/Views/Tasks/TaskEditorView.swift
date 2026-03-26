@@ -23,11 +23,7 @@ struct TaskEditorView: View {
         Form {
             Section("基本信息") {
                 TextField("任务标题", text: $title)
-                if hasNamedSubtasks {
-                    Text("已有子任务时，首页显示的“下一步”会自动等于第一个未完成子任务。")
-                        .font(.footnote)
-                        .foregroundStyle(theme.textSecondary)
-                } else {
+                if !hasNamedSubtasks {
                     TextField("下一步（可选）", text: $nextStep)
                 }
                 TextField("备注（可选）", text: $note, axis: .vertical)
@@ -51,6 +47,10 @@ struct TaskEditorView: View {
             }
 
             Section("子任务（可选）") {
+                Text("添加子任务后，首页“下一步”会自动取第一个未完成子任务。")
+                    .font(.footnote)
+                    .foregroundStyle(theme.textSecondary)
+
                 ForEach(subtaskDrafts.indices, id: \.self) { index in
                     HStack {
                         TextField("子任务 \(index + 1)", text: $subtaskDrafts[index])

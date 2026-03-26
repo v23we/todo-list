@@ -101,6 +101,50 @@ final class TodoListTests: XCTestCase {
         XCTAssertEqual(progress.totalXP, AppConstants.xpPerTask)
     }
 
+    func testPrimaryActionWithThreeSubtasksAdvancesInOrder() throws {
+        let container = try makeContainer()
+        let context = container.mainContext
+        let progress = UserProgress()
+        context.insert(progress)
+        try RewardService.bootstrapRewards(context: context, progress: progress)
+
+        let task = TodoTask(title: "任务 A", isCurrent: true, section: .pending, sortOrder: 1)
+        let subtaskOne = Subtask(title: "子任务 1", orderIndex: 0, parentTask: task)
+        let subtaskTwo = Subtask(title: "子任务 2", orderIndex: 1, parentTask: task)
+        let subtaskThree = Subtask(title: "子任务 3", orderIndex: 2, parentTask: task)
+        task.subtasks = [subtaskOne, subtaskTwo, subtaskThree]
+
+        context.insert(task)
+        context.insert(subtaskOne)
+        context.insert(subtaskTwo)
+        context.insert(subtaskThree)
+        try context.save()
+
+        XCTAssertEqual(task.displayNextStep, "子任务 1")
+
+        let firstOutcome = try TaskService.performPrimaryAction(for: task, context: context)
+        XCTAssertNil(firstOutcome)
+        XCTAssertTrue(subtaskOne.isCompleted)
+        XCTAssertFalse(subtaskTwo.isCompleted)
+        XCTAssertFalse(subtaskThree.isCompleted)
+        XCTAssertFalse(task.isCompleted)
+        XCTAssertEqual(task.displayNextStep, "子任务 2")
+
+        let secondOutcome = try TaskService.performPrimaryAction(for: task, context: context)
+        XCTAssertNil(secondOutcome)
+        XCTAssertTrue(subtaskTwo.isCompleted)
+        XCTAssertFalse(subtaskThree.isCompleted)
+        XCTAssertFalse(task.isCompleted)
+        XCTAssertEqual(task.displayNextStep, "子任务 3")
+
+        let finalOutcome = try TaskService.performPrimaryAction(for: task, context: context)
+        XCTAssertNotNil(finalOutcome)
+        XCTAssertTrue(subtaskThree.isCompleted)
+        XCTAssertTrue(task.isCompleted)
+        XCTAssertNil(task.displayNextStep)
+        XCTAssertEqual(progress.totalXP, AppConstants.xpPerTask)
+    }
+
     func testLaterTasksAreExcludedFromCurrentPromotion() throws {
         let container = try makeContainer()
         let context = container.mainContext
@@ -141,5 +185,30 @@ final class TodoListTests: XCTestCase {
         let task = TodoTask(title: "收拾书桌", manualNextStep: "   ", section: .pending)
 
         XCTAssertNil(task.displayNextStep)
+    }
+
+    func testDisplayNextStepFallsBackToManualValueAfterAllSubtasksAreRemoved() {
+        let task = TodoTask(title: "收拾书桌", manualNextStep: "", section: .pending)
+        let subtask = Subtask(title: "先把水杯拿走", orderIndex: 0, parentTask: task)
+        task.subtasks = [subtask]
+
+        XCTAssertEqual(task.displayNextStep, "先把水杯拿走")
+
+        task.subtasks = []
+        task.manualNextStep = "重新从桌面开始"
+
+        XCTAssertEqual(task.displayNextStep, "重新从桌面开始")
+    }
+
+    func testPrimaryActionTitleMatchesSubtaskState() {
+        let plainTask = TodoTask(title: "倒垃圾", section: .pending)
+        XCTAssertEqual(plainTask.primaryActionTitle, "做完")
+
+        let taskWithSubtasks = TodoTask(title: "收拾书桌", section: .pending)
+        taskWithSubtasks.subtasks = [
+            Subtask(title: "先把水杯拿走", orderIndex: 0, parentTask: taskWithSubtasks)
+        ]
+
+        XCTAssertEqual(taskWithSubtasks.primaryActionTitle, "完成这一步")
     }
 }

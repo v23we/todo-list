@@ -110,10 +110,14 @@ extension TodoTask {
     }
 
     var primaryActionTitle: String {
-        hasSubtasks ? "完成下一步" : "做完了"
+        hasSubtasks ? "完成这一步" : "做完"
     }
 
     var primaryActionDetailTitle: String {
         hasSubtasks ? "完成这一步" : "完成这个任务"
+    }
+
+    var subtasksNextStepHint: String {
+        "添加子任务后，首页“下一步”会自动取第一个未完成子任务。"
     }
 }
